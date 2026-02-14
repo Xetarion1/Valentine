@@ -29,7 +29,7 @@
         /* Katmanlı kalp şekilleri arka plan */
         .heart-background {
             position: fixed;
-            top: 60%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 0;
@@ -186,30 +186,12 @@
             text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
         }
 
-        /* Kalp animasyonu */
-        .heart {
-            position: absolute;
-            font-size: 24px;
-            color: #ff1493;
-            animation: float 10s linear infinite;
-            opacity: 0.7;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            from {
-                transform: translateY(110vh) scale(0.8) rotate(0deg);
-                opacity: 0.7;
-            }
-            to {
-                transform: translateY(-10vh) scale(1.2) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
         /* Responsive Tasarım */
         @media screen and (max-width: 768px) {
+            .heart-background {
+                top: 65%;
+            }
+            
             .heart-layer {
                 width: 100px;
                 height: 100px;
@@ -258,6 +240,10 @@
         }
 
         @media screen and (max-width: 480px) {
+            .heart-background {
+                top: 70%;
+            }
+            
             .heart-layer {
                 width: 80px;
                 height: 80px;
@@ -325,10 +311,9 @@
         <div class="text-box">
             <!-- DEĞİŞTİRİLEBİLİR METİN: İlk ekran metni -->
             <p>
-                Merhaba aşkım! ❤️<br><br>
+                Selam aşkımm! ❤️<br><br>
                 Bugün özel bir gün ve sana söylemek istediklerim var...<br><br>
-                Seninle geçirdiğim her an harika!<br>
-                Hayatıma kattığın mutluluk için çok teşekkür ederim. 💕
+                beni dinler misin acaba??<br>
             </p>
             <!-- METİN SONU -->
         </div>
@@ -344,9 +329,9 @@
         <div class="text-box">
             <!-- DEĞİŞTİRİLEBİLİR METİN: İkinci ekran metni -->
             <p>
-                Seninle her anım değerli! 🌹<br><br>
-                Sen benim için çok özelsin ve her gün sana daha çok aşık oluyorum.<br><br>
-                Yanımda olduğun için çok şanslıyım! 💞
+                Seninle her an çok güzel! 🌹<br><br>
+                Benim için çok özelsin ve her gün sana daha çok aşık oluyorum.<br><br>
+                Yanımda olduğun için çok şanslıyım. 💞
             </p>
             <!-- METİN SONU -->
         </div>
@@ -357,11 +342,11 @@
 
     <!-- ========== EKRAN 3 (FİNAL) ========== -->
     <div id="screen3" class="screen">
-        <div id="messageBox">
+        <div id="messageBox" style="display: block;">
             <!-- DEĞİŞTİRİLEBİLİR METİN: Final sayfası mesajı -->
-            Biliyordum kabul edeceğini! 😍<br><br>
-            Seni çok seviyorum aşkım! ❤️❤️❤️<br><br>
-            Mutlu Sevgililer Günü! 💝
+            Sevgililer günümüz kutlu olsun bebeğim.<br><br>
+            Seni çok seviyorum ❤️❤️❤️<br><br>
+            Muah! 😘
             <!-- METİN SONU -->
         </div>
     </div>
@@ -433,28 +418,6 @@
         yesBtn.addEventListener("click", () => {
             goToScreen(2);
         });
-
-        // Kalpler animasyonu
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-
-            const emojis = ["❤️", "💖", "💕", "💞", "💓", "💗", "💘", "💝", "💟", "🌹"];
-            heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = (6 + Math.random() * 8) + "s";
-            heart.style.fontSize = (20 + Math.random() * 25) + "px";
-
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 15000);
-        }
-
-        // Her 150ms'de bir kalp oluştur
-        setInterval(createHeart, 150);
     </script>
 </body>
 </html>
